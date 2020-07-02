@@ -1,4 +1,4 @@
-{% set version = "0.3.1" %}
+{% set version = "0.4.0" %}
 
 package:
   name: stateplane
@@ -6,11 +6,11 @@ package:
 
 source:
   url: https://pypi.io/packages/source/s/stateplane/stateplane-{{ version }}.tar.gz
-  sha256: 8cd99d0f0c5103a3ec1fbaeb300cdfd8833f5dc1289ee75022882fb11c296c51
+  sha256: fe14f35c77ef47e51b6f7eb4b589cfdc297b5932fa6acc0383279ef82b125402
 
 build:
   number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
   noarch: python
   entry_points:
     - stateplane = stateplane.cli:main
@@ -21,9 +21,9 @@ requirements:
     - pip
   run:
     - python
-    - pyproj >=1.9.4,<2
-    - shapely >=1.5.1,<1.6
-    - gdal >=2.0,<2.3
+    - pyproj >=2.4.2
+    - shapely
+    - gdal
 
 test:
   imports:
@@ -32,10 +32,10 @@ test:
 about:
   home: https://github.com/fitnr/stateplane
   dev_url: https://github.com/fitnr/stateplane
-  license: GPL-3.0
+  license: GPL-3.0-only
   license_family: GPL
-  license_file: '{{ environ["RECIPE_DIR"] }}/LICENSE'
-  summary: 'Convert between state plane projections and long/lat'
+  license_file: {{ environ["RECIPE_DIR"] }}/LICENSE
+  summary: Convert between state plane projections and long/lat
   description: |
     Get the local state plane projection for geographica coordinates, and
     automatically convert between coordinates and the local state plane
