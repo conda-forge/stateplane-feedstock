@@ -32,7 +32,7 @@ test:
 about:
   home: https://github.com/fitnr/stateplane
   dev_url: https://github.com/fitnr/stateplane
-  license: GPL-3.0
+  license: GPL-3.0-only
   license_family: GPL
   license_file: {{ environ["RECIPE_DIR"] }}/LICENSE
   summary: Convert between state plane projections and long/lat
