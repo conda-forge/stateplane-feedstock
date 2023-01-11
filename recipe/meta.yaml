@@ -1,4 +1,4 @@
-{% set version = "0.4.0" %}
+{% set version = "0.5.0" %}
 
 package:
   name: stateplane
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/s/stateplane/stateplane-{{ version }}.tar.gz
-  sha256: fe14f35c77ef47e51b6f7eb4b589cfdc297b5932fa6acc0383279ef82b125402
+  sha256: 9dc32567518ea6a5a15f276577a0763770541f9e1d2ba36efb4c19b25137fcfe
 
 build:
   number: 0
@@ -16,14 +16,15 @@ build:
     - stateplane = stateplane.cli:main
 
 requirements:
-  build:
-    - python
+  host:
+    - python >=3.7
     - pip
   run:
-    - python
-    - pyproj >=2.4.2
+    - python >=3.7
+    - pyproj >=3.2.0
     - shapely
     - gdal
+    - importlib_resources
 
 test:
   imports:
